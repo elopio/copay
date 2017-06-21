@@ -1,0 +1,19 @@
+name: copay
+version: master
+summary: The Secure, Shared Bitcoin Wallet
+description: |
+  Secure your bitcoin with the open source, HD‑multisignature wallet from
+  BitPay.
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict
+
+apps:
+  copay:
+    command: sh -c \"cd $SNAP/lib/node_modules/copay && npm start\"
+    plugs: [network, network-bind]
+
+parts:
+  copay:
+    source: .
+    plugin: nodejs
